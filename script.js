@@ -1,5 +1,10 @@
+let cartProd = document.getElementById('cart-products');
+let cart = []
 let productsGrid = document.getElementById('products-grid');
 let productsArray = [];
+let product = productsArray.find(function(p)){
+    return p.id == id;
+}
 let xhr = new XMLHttpRequest();
 let url = 'https://my-json-server.typicode.com/RobocodeSchool/marketplace';
 xhr.open('GET',url + '/products');
@@ -23,3 +28,12 @@ xhr.onload = function() {
     });
 }
 xhr.send();
+function openCart(){
+    cartProd.classList.toggle('hide');
+}
+function addProductToCart (id) {
+    let product = productsArray.find(function(p)){
+        return p.id == id;
+    }
+    cart.push(product)
+ }
